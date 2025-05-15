@@ -1,16 +1,63 @@
-# github_actions_sample
+# Flutter GitHub Actions Sample
 
-A new Flutter project.
+This is a sample Flutter project that demonstrates how to set up GitHub Actions for continuous integration.
 
-## Getting Started
+## CI/CD Pipeline
 
-This project is a starting point for a Flutter application.
+The project uses GitHub Actions to:
+- Run tests
+- Check code formatting
+- Analyze code
+- Build for Android and iOS
 
-A few resources to get you started if this is your first Flutter project:
+### Workflow Details
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The CI pipeline runs on:
+- Push to main branch
+- Pull requests to main branch
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It includes the following jobs:
+1. **Test Job**
+   - Runs on Ubuntu
+   - Installs dependencies
+   - Verifies code formatting
+   - Analyzes code
+   - Runs tests
+
+2. **Android Build Job**
+   - Runs after tests pass
+   - Builds debug APK
+
+3. **iOS Build Job**
+   - Runs after tests pass
+   - Builds debug iOS app (without code signing)
+
+## Local Development
+
+To run the project locally:
+
+```bash
+# Install dependencies
+flutter pub get
+
+# Run tests
+flutter test
+
+# Format code
+dart format .
+
+# Analyze code
+flutter analyze
+
+# Run the app
+flutter run
+```
+
+## Requirements
+
+- Flutter SDK: ^3.19.3
+- Dart SDK: ^3.7.2
+
+## License
+
+This project is open source and available under the MIT License.
